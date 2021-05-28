@@ -1,5 +1,7 @@
 import React from 'react'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+
+import 'firebase/auth'
 
 const App = () => {
   const login = () => {
@@ -8,7 +10,7 @@ const App = () => {
   }
   return (
     <div>
-      <div>Hola mundo 2</div>
+      <div>Hola mundo 3</div>
       <button type="button" onClick={login}>login with google</button>
     </div>
   )
