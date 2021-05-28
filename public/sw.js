@@ -5,7 +5,7 @@ const urlsToCache = [
 ]
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open('my-first-cache-v2').then((cache) => cache.addAll(urlsToCache)))
+  event.waitUntil(caches.open('my-first-cache-v3').then((cache) => cache.addAll(urlsToCache)))
 })
 
 self.addEventListener('activate', (a) => {
