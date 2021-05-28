@@ -74,6 +74,7 @@ const App = () => {
             {`${nombre}  `}
             <input
               type="checkbox"
+              className="check"
               onClick={() => {
                 window.asisting[userID] = !window.asisting[userID]
               }}
