@@ -54,7 +54,10 @@ const App = () => {
       const contain = []
       respuesta.forEach((usuario, index) => {
         contain.push(
-          <div key={index}>{`${usuario.data().nombre} ${usuario.data().asistencias[window.searchDate] ? '✓' : '✗'}`}</div>,
+          <div key={index}>
+            {usuario.data().nombre}
+            <span>{usuario.data().asistencias[window.searchDate] ? '✓' : '✗'}</span>
+          </div>,
         )
       })
       setContenedorUsuarios(contain)
@@ -118,22 +121,22 @@ const App = () => {
 
   return (
     <div>
-      <div style={{ display: activePage === 'Home' ? 'flex' : 'none' }}>
+      <div className="main" style={{ display: activePage === 'Home' ? 'flex' : 'none' }}>
         <h1>Toma de asistencias</h1>
         <button type="button" onClick={pastAssist}>Ver asistencia de clases pasadas</button>
         <button type="button" onClick={newClass}>Nueva clase</button>
         <button type="button" onClick={newStudent}>Agregar alumno</button>
       </div>
-      <div style={{ display: activePage === 'pasada' ? 'flex' : 'none' }}>
+      <div className="main" style={{ display: activePage === 'pasada' ? 'flex' : 'none' }}>
         <h2>Vista de asistencias pasadas</h2>
         <div>
           <select name="clases" id="clases">{ contenedorClases }</select>
           <button type="button" onClick={seleccionarClase}>Seleccionar clase</button>
-          <div>{contenedorUsuarios}</div>
+          <div className="contenedor">{contenedorUsuarios}</div>
         </div>
         <button type="button" onClick={regreso}>Regresar</button>
       </div>
-      <div style={{ display: activePage === 'nuevo' ? 'flex' : 'none' }}>
+      <div className="main" style={{ display: activePage === 'nuevo' ? 'flex' : 'none' }}>
         <h2>Asistencia de nueva clase</h2>
         <label htmlFor="date">
           Fecha
@@ -144,11 +147,11 @@ const App = () => {
           <input type="text" id="name" />
         </label>
         <h3>Alumnos</h3>
-        <div>{contenedorUsuarios}</div>
+        <div className="contenedor">{contenedorUsuarios}</div>
         <button type="button" onClick={guardarAsistencia}>Guardar asistencia</button>
         <button type="button" onClick={regreso}>Regresar</button>
       </div>
-      <div style={{ display: activePage === 'usuario' ? 'flex' : 'none' }}>
+      <div className="main" style={{ display: activePage === 'usuario' ? 'flex' : 'none' }}>
         <h2>Agregar alumno</h2>
         <label htmlFor="studentName">
           Nombre
