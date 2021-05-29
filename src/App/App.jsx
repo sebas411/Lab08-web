@@ -43,6 +43,7 @@ const App = () => {
       })
       setContenedorClases(contain)
     })
+    setContenedorUsuarios([])
     setActivePage('pasada')
   }
 
@@ -52,6 +53,12 @@ const App = () => {
     const usuarios = window.db.collection('usuarios')
     usuarios.get().then((respuesta) => {
       const contain = []
+      contain.push(
+        <div style={{ fontWeight: 'bold' }}>
+          Fecha:
+          <span>{window.searchDate}</span>
+        </div>,
+      )
       respuesta.forEach((usuario, index) => {
         contain.push(
           <div key={index}>
@@ -65,6 +72,7 @@ const App = () => {
   }
 
   const newClass = () => {
+    setContenedorUsuarios([])
     const usuarios = window.db.collection('usuarios')
     usuarios.get().then((respuesta) => {
       const contain = []
